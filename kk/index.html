@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>物理引擎贪吃蛇</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+      background: linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      color: #e8e8e8;
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+    .panel {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px 24px;
+      margin-bottom: 12px;
+      padding: 12px 20px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .stat {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .stat label {
+      font-size: 0.85rem;
+      opacity: 0.75;
+    }
+    .stat span {
+      font-variant-numeric: tabular-nums;
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: #7ef29d;
+    }
+    #btnRestart {
+      margin-left: auto;
+      padding: 8px 18px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+      background: #e94560;
+      color: #fff;
+      font-weight: 600;
+      transition: filter 0.15s, transform 0.1s;
+    }
+    #btnRestart:hover {
+      filter: brightness(1.08);
+    }
+    #btnRestart:active {
+      transform: scale(0.97);
+    }
+    .wrap {
+      padding: 8px;
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.35);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+    #game {
+      display: block;
+      background: #0d1117;
+      border-radius: 4px;
+    }
+    .hint {
+      margin-top: 10px;
+      font-size: 0.8rem;
+      opacity: 0.65;
+      max-width: 420px;
+      text-align: center;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <h1>物理引擎贪吃蛇</h1>
+  <div class="panel">
+    <div class="stat">
+      <label>分数</label>
+      <span id="score">0</span>
+    </div>
+    <div class="stat">
+      <label>速度</label>
+      <span id="speed">100</span><span style="font-weight:600;color:#aaa"> %</span>
+    </div>
+    <button type="button" id="btnRestart">重新开始</button>
+  </div>
+  <div class="wrap">
+    <canvas id="game" width="600" height="600" aria-label="物理引擎贪吃蛇游戏画布"></canvas>
+  </div>
+  <p class="hint">左右方向键平滑转向 · 空格键加速 · 地图中心是泥潭（速度减半）</p>
+
+  <script type="module" src="GameController.js"></script>
+</body>
+</html>
